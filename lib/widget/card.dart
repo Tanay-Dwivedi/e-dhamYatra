@@ -6,15 +6,17 @@ Card destinationCard(title, image) {
     elevation: 6,
     color: Colors.white,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-    child: Column(children: [
-      Container(
-        margin: const EdgeInsets.all(4),
-        height: 120,
-        width: 100,
-        decoration: BoxDecoration(
-            color: image, borderRadius: BorderRadius.circular(10)),
-      ),
-      smallTitle(title)
-    ]),
+    child: InkWell(
+        onTap: () {},
+        child: Column(children: [
+          Container(
+            margin: const EdgeInsets.all(4),
+            height: 120,
+            width: 100,
+            decoration: BoxDecoration(
+                color: image, borderRadius: BorderRadius.circular(10)),
+          ),
+          smallTitle(title)
+        ])),
   );
 }
