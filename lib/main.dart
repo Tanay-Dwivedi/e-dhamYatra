@@ -30,7 +30,7 @@ class BottomNav extends StatefulWidget {
 }
 
 class _BottomNavState extends State<BottomNav> {
-  static const double iconSize = 35;
+  static const double iconSize = 30;
   int _selectedIndex = 0;
 
   static const List<Widget> _pages = [

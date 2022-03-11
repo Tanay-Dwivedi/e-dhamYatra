@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
-Widget medTitle(text) {
+Widget medTitle(text, double bp, double tp) {
   return Container(
-      padding: const EdgeInsets.only(top: 18, bottom: 4, left: 16),
+      padding: EdgeInsets.only(top: tp, bottom: bp, left: 16),
       child: Text(
         text,
         style: const TextStyle(
-            fontFamily: 'Poppins', fontWeight: FontWeight.w700, fontSize: 20),
+            fontFamily: 'Poppins-Bold',
+            fontWeight: FontWeight.w900,
+            fontSize: 22),
       ));
 }
 
