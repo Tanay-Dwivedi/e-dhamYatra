@@ -15,7 +15,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(title: 'Utrakhand Tourism', home: BottomNav());
+    return MaterialApp(
+        theme: ThemeData(fontFamily: 'Poppins'),
+        title: 'Utrakhand Tourism',
+        home: const BottomNav());
   }
 }
 
@@ -28,7 +31,7 @@ class BottomNav extends StatefulWidget {
 
 class _BottomNavState extends State<BottomNav> {
   static const double iconSize = 35;
-  int _selectedIndex = 1;
+  int _selectedIndex = 0;
 
   static const List<Widget> _pages = [
     HomePage(),
@@ -50,48 +53,57 @@ class _BottomNavState extends State<BottomNav> {
         bottomNavigationBar: Container(
           margin: const EdgeInsets.all(30),
           decoration: const BoxDecoration(
-              color: Colors.transparent,
-              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(250)),
-              boxShadow: [
-                BoxShadow(
-                    offset: Offset(5, 10),
-                    color: Color(0x54000000),
-                    spreadRadius: 4,
-                    blurRadius: 20),
-              ]),
+            color: Colors.transparent,
+            boxShadow: [
+              BoxShadow(
+                  offset: Offset(4, 14),
+                  color: Color(0xE0FFBE9D),
+                  spreadRadius: 4,
+                  blurRadius: 24),
+            ],
+          ),
           child: ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: BottomNavigationBar(
-                type: BottomNavigationBarType.fixed,
-                showSelectedLabels: false, // <-- HERE
-                showUnselectedLabels: false,
-                backgroundColor: const Color(0xFF44BCFF),
-                selectedItemColor: Colors.white,
-                unselectedItemColor: Colors.white.withOpacity(.60),
-                selectedFontSize: 14,
-                unselectedFontSize: 14,
-                onTap: _onItemTapped,
-                currentIndex: _selectedIndex,
-                // ignore: prefer_const_literals_to_create_immutables
-                items: [
-                  const BottomNavigationBarItem(
-                    label: 'Home',
-                    icon: Icon(Icons.home_rounded, size: iconSize),
-                  ),
-                  const BottomNavigationBarItem(
-                    label: 'hotel',
-                    icon: Icon(Icons.hotel_rounded, size: iconSize),
-                  ),
-                  const BottomNavigationBarItem(
-                    label: 'calender',
-                    icon: Icon(Icons.today_rounded, size: iconSize),
-                  ),
-                  const BottomNavigationBarItem(
-                    label: 'chat',
-                    icon: Icon(Icons.forum_rounded, size: iconSize),
-                  ),
-                ],
-              )),
+              borderRadius: BorderRadius.circular(12), child: newMethod()),
+        ));
+  }
+
+  Container newMethod() {
+    return Container(
+        decoration: const BoxDecoration(
+          gradient:
+              LinearGradient(colors: [Color(0xFF44BCFF), Color(0xFF26F384)]),
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+        ),
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          elevation: 0,
+          showSelectedLabels: false, // <-- HERE
+          showUnselectedLabels: false,
+          backgroundColor: Colors.transparent,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white.withOpacity(.70),
+          selectedFontSize: 14,
+          unselectedFontSize: 14,
+          onTap: _onItemTapped,
+          currentIndex: _selectedIndex,
+          items: const [
+            BottomNavigationBarItem(
+              label: 'Home',
+              icon: Icon(Icons.home_rounded, size: iconSize),
+            ),
+            BottomNavigationBarItem(
+              label: 'hotel',
+              icon: Icon(Icons.hotel_rounded, size: iconSize),
+            ),
+            BottomNavigationBarItem(
+              label: 'calendar',
+              icon: Icon(Icons.today_rounded, size: iconSize),
+            ),
+            BottomNavigationBarItem(
+              label: 'Blog',
+              icon: Icon(Icons.forum_rounded, size: iconSize),
+            ),
+          ],
         ));
   }
 }
