@@ -1,3 +1,4 @@
+import 'package:e_chardham_yatra/widget/title.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,22 +12,22 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      padding: const EdgeInsets.all(16),
       children: [
-        const Text(
-          "Explore",
-          style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
-        ),
         Container(
-            padding: const EdgeInsets.only(top: 16, bottom: 16),
-            child: Row(
-              children: [
-                exploreTiles("Spritual"),
-                exploreTiles("Treckking"),
-                exploreTiles("Nature"),
-                exploreTiles("Wildlife")
-              ],
-            ))
+          height: 300,
+          width: double.infinity,
+          color: Colors.lightBlue,
+        ),
+        medTitle("Explore"),
+        Row(
+          children: [
+            exploreTiles("Spritual"),
+            exploreTiles("Treckking"),
+            exploreTiles("Nature"),
+            exploreTiles("Wildlife")
+          ],
+        ),
+        medTitle("Top Destinations"),
       ],
     );
   }
@@ -49,10 +50,9 @@ Widget exploreTiles(String title) {
       ),
 
       Container(
-          padding: const EdgeInsets.all(5),
+          padding: const EdgeInsets.all(4),
           child: Text(
             title,
-            style: TextStyle(fontFamily: ),
           ))
     ],
   ));
