@@ -1,3 +1,4 @@
+import 'package:e_chardham_yatra/widget/card.dart';
 import 'package:e_chardham_yatra/widget/title.dart';
 import 'package:flutter/material.dart';
 
@@ -28,6 +29,13 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
         medTitle("Top Destinations"),
+        Row(
+          children: [
+            destinationCard("title1", Colors.red[100]),
+            destinationCard("title2", Colors.green[100]),
+            destinationCard("title3", Colors.purple[100]),
+          ],
+        )
       ],
     );
   }

@@ -51,9 +51,9 @@ class _BottomNavState extends State<BottomNav> {
     return Scaffold(
         body: _pages.elementAt(_selectedIndex),
         bottomNavigationBar: Container(
-          margin: const EdgeInsets.all(30),
+          margin:
+              const EdgeInsets.only(top: 5, bottom: 30, left: 30, right: 30),
           decoration: const BoxDecoration(
-            color: Colors.transparent,
             boxShadow: [
               BoxShadow(
                   offset: Offset(4, 14),
