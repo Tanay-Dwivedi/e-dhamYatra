@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
               child: const Text("embrace your spirituality"))
         ]),
         SingleChildScrollView(
-            padding: const EdgeInsets.only(left: 8, right: 8, bottom: 10),
+            padding: const EdgeInsets.only(left: 8, right: 8, bottom: 120),
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [

@@ -48,22 +48,31 @@ class _BottomNavState extends State<BottomNav> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Stack(
-      children: [
-        _pages.elementAt(_selectedIndex),
-        Align(
-            alignment: Alignment.bottomCenter,
-            child: Theme(
-                child: newMethod(),
-                data: Theme.of(context)
-                    .copyWith(canvasColor: Colors.transparent)))
-      ],
-    ));
+    double width = 300;
+    return Scaffold(body: OrientationBuilder(builder: (context, orientation) {
+      if (orientation == Orientation.landscape) {
+        width = 300;
+      } else {
+        width = double.infinity;
+      }
+
+      return Stack(
+        children: [
+          _pages.elementAt(_selectedIndex),
+          Align(
+              alignment: Alignment.bottomCenter,
+              child: Theme(
+                  child: newMethod(width),
+                  data: Theme.of(context)
+                      .copyWith(canvasColor: Colors.transparent)))
+        ],
+      );
+    }));
   }
 
-  Container newMethod() {
+  Container newMethod(width) {
     return Container(
+        width: width,
         margin: const EdgeInsets.only(bottom: 20, left: 30, right: 30),
         decoration: const BoxDecoration(
           boxShadow: [
