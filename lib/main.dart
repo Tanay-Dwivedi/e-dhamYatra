@@ -49,27 +49,30 @@ class _BottomNavState extends State<BottomNav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: _pages.elementAt(_selectedIndex),
-        bottomNavigationBar: Container(
-          margin:
-              const EdgeInsets.only(top: 5, bottom: 30, left: 30, right: 30),
-          decoration: const BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                  offset: Offset(4, 14),
-                  color: Color(0xE0FFBE9D),
-                  spreadRadius: 4,
-                  blurRadius: 24),
-            ],
-          ),
-          child: ClipRRect(
-              borderRadius: BorderRadius.circular(12), child: newMethod()),
-        ));
+        body: Stack(
+      children: [
+        _pages.elementAt(_selectedIndex),
+        Align(
+            alignment: Alignment.bottomCenter,
+            child: Theme(
+                child: newMethod(),
+                data: Theme.of(context)
+                    .copyWith(canvasColor: Colors.transparent)))
+      ],
+    ));
   }
 
   Container newMethod() {
     return Container(
+        margin: const EdgeInsets.only(bottom: 20, left: 30, right: 30),
         decoration: const BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+                offset: Offset(4, 14),
+                color: Color.fromARGB(223, 158, 121, 103),
+                spreadRadius: 4,
+                blurRadius: 24)
+          ],
           gradient:
               LinearGradient(colors: [Color(0xFF44BCFF), Color(0xFF26F384)]),
           borderRadius: BorderRadius.all(Radius.circular(8)),
