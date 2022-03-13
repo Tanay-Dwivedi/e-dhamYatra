@@ -22,14 +22,41 @@ class _HomePageState extends State<HomePage> {
         CarouselSlider(
           items: [
             for (var display in places)
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(radius),
-                  image: DecorationImage(
-                      image: AssetImage(display.displayImage),
-                      fit: BoxFit.cover),
+              Stack(alignment: Alignment.bottomLeft, children: [
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(radius),
+                    image: DecorationImage(
+                        image: AssetImage(display.displayImage),
+                        fit: BoxFit.cover),
+                  ),
                 ),
-              )
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(radius),
+                      color: Colors.white,
+                      gradient: LinearGradient(
+                          begin: FractionalOffset.topCenter,
+                          end: FractionalOffset.bottomCenter,
+                          colors: [
+                            Colors.black.withOpacity(0),
+                            Colors.black.withOpacity(.6),
+                          ],
+                          stops: const [
+                            0.0,
+                            1.0
+                          ])),
+                ),
+                Padding(
+                    padding: const EdgeInsets.only(bottom: 10, left: 20),
+                    child: Text(
+                      display.title,
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.w700),
+                    ))
+              ])
           ],
           options: CarouselOptions(
             autoPlay: true,
