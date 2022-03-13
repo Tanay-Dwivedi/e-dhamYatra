@@ -24,7 +24,6 @@ class MyApp extends StatelessWidget {
 
 class BottomNav extends StatefulWidget {
   const BottomNav({Key? key}) : super(key: key);
-
   @override
   State<BottomNav> createState() => _BottomNavState();
 }
@@ -74,26 +73,25 @@ class _BottomNavState extends State<BottomNav> {
     return Container(
         width: width,
         margin: const EdgeInsets.only(bottom: 20, left: 30, right: 30),
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-                offset: Offset(4, 14),
-                color: Color.fromARGB(223, 158, 121, 103),
-                spreadRadius: 4,
-                blurRadius: 24)
+                offset: const Offset(4, 4),
+                color: Colors.black.withOpacity(.4),
+                spreadRadius: 1,
+                blurRadius: 10)
           ],
-          gradient:
-              LinearGradient(colors: [Color(0xFF44BCFF), Color(0xFF26F384)]),
-          borderRadius: BorderRadius.all(Radius.circular(8)),
+          color: Colors.white.withOpacity(.93),
+          borderRadius: const BorderRadius.all(Radius.circular(12)),
         ),
         child: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
           elevation: 0,
+          type: BottomNavigationBarType.fixed,
           showSelectedLabels: false, // <-- HERE
           showUnselectedLabels: false,
           backgroundColor: Colors.transparent,
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.white.withOpacity(.70),
+          selectedItemColor: Colors.blue,
+          unselectedItemColor: Colors.grey.withOpacity(.70),
           selectedFontSize: 14,
           unselectedFontSize: 14,
           onTap: _onItemTapped,
@@ -101,7 +99,7 @@ class _BottomNavState extends State<BottomNav> {
           items: const [
             BottomNavigationBarItem(
               label: 'Home',
-              icon: Icon(Icons.home_rounded, size: iconSize),
+              icon: Icon(Icons.abc, size: iconSize),
             ),
             BottomNavigationBarItem(
               label: 'hotel',

@@ -7,16 +7,22 @@ Card destinationCard(title, image) {
     color: Colors.white,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
     child: InkWell(
+        borderRadius: BorderRadius.circular(12),
         onTap: () {},
         child: Column(children: [
           Container(
             margin: const EdgeInsets.all(4),
-            height: 120,
-            width: 100,
-            decoration: BoxDecoration(
-                color: image, borderRadius: BorderRadius.circular(10)),
+            height: 140,
+            width: 120,
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.asset(
+                  'images/1.jpg',
+                  fit: BoxFit.cover,
+                )),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
           ),
-          smallTitle(title)
+          smallTitle("Kedarnath")
         ])),
   );
 }

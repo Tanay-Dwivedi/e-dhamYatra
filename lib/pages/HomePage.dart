@@ -44,12 +44,7 @@ class _HomePageState extends State<HomePage> {
                 destinationCard("title7", Colors.orange[100]),
               ],
             )),
-        Row(children: [
-          medTitle("Char Dham", 0, 20),
-          Container(
-              padding: const EdgeInsets.only(left: 8, top: 22),
-              child: const Text("embrace your spirituality"))
-        ]),
+        medTitle("Char Dham", 0, 20),
         SingleChildScrollView(
             padding: const EdgeInsets.only(left: 8, right: 8, bottom: 120),
             scrollDirection: Axis.horizontal,
