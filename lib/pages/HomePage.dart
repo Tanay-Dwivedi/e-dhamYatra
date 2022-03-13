@@ -1,6 +1,10 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:e_chardham_yatra/place_data.dart';
 import 'package:e_chardham_yatra/widget/card.dart';
 import 'package:e_chardham_yatra/widget/title.dart';
 import 'package:flutter/material.dart';
+
+double radius = 12;
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,18 +18,31 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        Container(
-          height: 300,
-          width: double.infinity,
-          color: Colors.lightBlue,
+        const Padding(padding: EdgeInsets.all(40)),
+        CarouselSlider(
+          items: [
+            for (var display in places)
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(radius),
+                  image: DecorationImage(
+                      image: AssetImage(display.displayImage),
+                      fit: BoxFit.cover),
+                ),
+              )
+          ],
+          options: CarouselOptions(
+            autoPlay: true,
+            enlargeCenterPage: true,
+          ),
         ),
         medTitle("Explore", 12, 20),
         Row(
           children: [
-            exploreTiles("Spritual"),
-            exploreTiles("Adventure"),
-            exploreTiles("Nature"),
-            exploreTiles("Wildlife")
+            exploreTiles("Spiritual", Icons.temple_hindu_rounded),
+            exploreTiles("Adventure", Icons.ac_unit_rounded),
+            exploreTiles("Nature", Icons.nature_rounded),
+            exploreTiles("Wildlife", Icons.pets_rounded)
           ],
         ),
         medTitle("Top Destinations", 6, 20),
@@ -33,51 +50,33 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(left: 8, right: 8, bottom: 10),
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: [
-                destinationCard("title1", Colors.red[100]),
-                destinationCard("title2", Colors.green[100]),
-                destinationCard("title3", Colors.purple[100]),
-                destinationCard("title3", Colors.yellow[100]),
-                destinationCard("title4", Colors.blue[100]),
-                destinationCard("title5", Colors.pink[100]),
-                destinationCard("title6", Colors.brown[100]),
-                destinationCard("title7", Colors.orange[100]),
-              ],
+              children: [for (var place in places) destinationCard(place)],
             )),
         medTitle("Char Dham", 0, 20),
         SingleChildScrollView(
-            padding: const EdgeInsets.only(left: 8, right: 8, bottom: 120),
+            padding: const EdgeInsets.only(left: 8, right: 8, bottom: 80),
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: [
-                destinationCard("title1", Colors.red[100]),
-                destinationCard("title2", Colors.green[100]),
-                destinationCard("title3", Colors.purple[100]),
-                destinationCard("title3", Colors.yellow[100]),
-                destinationCard("title4", Colors.blue[100]),
-                destinationCard("title5", Colors.pink[100]),
-                destinationCard("title6", Colors.brown[100]),
-                destinationCard("title7", Colors.orange[100]),
-              ],
+              children: [for (var place in places) destinationCard(place)],
             )),
       ],
     );
   }
 }
 
-Widget exploreTiles(String title) {
+Widget exploreTiles(String title, IconData icon) {
   return Expanded(
       child: Column(
     children: [
       // TODO: Icon to be added here
       MaterialButton(
-        color: Colors.blueAccent,
+        color: Colors.blue[100],
         padding: const EdgeInsets.all(16),
         shape: const CircleBorder(),
         onPressed: () {},
-        child: const Icon(
-          Icons.abc,
-          color: Colors.white,
+        child: Icon(
+          icon,
+          color: Colors.black,
         ),
       ),
 

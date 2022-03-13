@@ -1,8 +1,12 @@
+import 'dart:ui';
+
 import 'package:e_chardham_yatra/pages/AccomodationPage.dart';
 import 'package:e_chardham_yatra/pages/BlogPage.dart';
 import 'package:e_chardham_yatra/pages/CalendarPage.dart';
 import 'package:e_chardham_yatra/pages/HomePage.dart';
 import 'package:flutter/material.dart';
+
+import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +20,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData(fontFamily: 'Poppins'),
+        theme: ThemeData(
+            scaffoldBackgroundColor: const Color.fromARGB(255, 234, 247, 253),
+            fontFamily: 'Poppins'),
         title: 'Utrakhand Tourism',
         home: const BottomNav());
   }
@@ -69,50 +75,36 @@ class _BottomNavState extends State<BottomNav> {
     }));
   }
 
-  Container newMethod(width) {
-    return Container(
+  Widget newMethod(width) {
+    return SizedBox(
         width: width,
-        margin: const EdgeInsets.only(bottom: 20, left: 30, right: 30),
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-                offset: const Offset(4, 4),
-                color: Colors.black.withOpacity(.4),
-                spreadRadius: 1,
-                blurRadius: 10)
-          ],
-          color: Colors.white.withOpacity(.93),
-          borderRadius: const BorderRadius.all(Radius.circular(12)),
-        ),
-        child: BottomNavigationBar(
-          elevation: 0,
-          type: BottomNavigationBarType.fixed,
-          showSelectedLabels: false, // <-- HERE
+        child: SnakeNavigationBar.color(
+          behaviour: SnakeBarBehaviour.floating,
+          snakeShape: SnakeShape.circle,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(radius)),
+          padding: const EdgeInsets.only(bottom: 8, left: 50, right: 50),
+
+          ///configuration for SnakeNavigationBar.color
+          snakeViewColor: Colors.blue[100],
+          selectedItemColor: Colors.black,
+          unselectedItemColor: Colors.blueGrey.withOpacity(.7),
+          backgroundColor: Colors.white.withOpacity(.95),
+
           showUnselectedLabels: false,
-          backgroundColor: Colors.transparent,
-          selectedItemColor: Colors.blue,
-          unselectedItemColor: Colors.grey.withOpacity(.70),
-          selectedFontSize: 14,
-          unselectedFontSize: 14,
-          onTap: _onItemTapped,
+          showSelectedLabels: false,
+
           currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
           items: const [
             BottomNavigationBarItem(
-              label: 'Home',
-              icon: Icon(Icons.abc, size: iconSize),
-            ),
+                icon: Icon(Icons.home_rounded), label: 'tickets'),
             BottomNavigationBarItem(
-              label: 'hotel',
-              icon: Icon(Icons.hotel_rounded, size: iconSize),
-            ),
+                icon: Icon(Icons.hotel_rounded), label: 'calendar'),
             BottomNavigationBarItem(
-              label: 'calendar',
-              icon: Icon(Icons.today_rounded, size: iconSize),
-            ),
+                icon: Icon(Icons.calendar_month_rounded), label: 'home'),
             BottomNavigationBarItem(
-              label: 'Blog',
-              icon: Icon(Icons.forum_rounded, size: iconSize),
-            ),
+                icon: Icon(Icons.forum_rounded), label: 'microphone'),
           ],
         ));
   }
