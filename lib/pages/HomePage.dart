@@ -77,14 +77,21 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(left: 8, right: 8, bottom: 10),
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: [for (var place in places) destinationCard(place)],
+              children: [
+                for (var place in places) destinationCard(place: place)
+              ],
             )),
         medTitle("Char Dham", 0, 20),
         SingleChildScrollView(
             padding: const EdgeInsets.only(left: 8, right: 8, bottom: 80),
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: [for (var place in places) destinationCard(place)],
+              children: [
+                for (var place in places)
+                  destinationCard(
+                    place: place,
+                  )
+              ],
             )),
       ],
     );

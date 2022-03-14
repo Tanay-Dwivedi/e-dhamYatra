@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:e_chardham_yatra/pages/AccomodationPage.dart';
 import 'package:e_chardham_yatra/pages/BlogPage.dart';
 import 'package:e_chardham_yatra/pages/CalendarPage.dart';
@@ -64,12 +62,7 @@ class _BottomNavState extends State<BottomNav> {
       return Stack(
         children: [
           _pages.elementAt(_selectedIndex),
-          Align(
-              alignment: Alignment.bottomCenter,
-              child: Theme(
-                  child: newMethod(width),
-                  data: Theme.of(context)
-                      .copyWith(canvasColor: Colors.transparent)))
+          Align(alignment: Alignment.bottomCenter, child: newMethod(width))
         ],
       );
     }));
@@ -83,7 +76,7 @@ class _BottomNavState extends State<BottomNav> {
           snakeShape: SnakeShape.circle,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(radius)),
-          padding: const EdgeInsets.only(bottom: 8, left: 50, right: 50),
+          padding: const EdgeInsets.only(bottom: 12, left: 50, right: 50),
 
           ///configuration for SnakeNavigationBar.color
           snakeViewColor: Colors.blue[100],
@@ -98,13 +91,13 @@ class _BottomNavState extends State<BottomNav> {
           onTap: _onItemTapped,
           items: const [
             BottomNavigationBarItem(
-                icon: Icon(Icons.home_rounded), label: 'tickets'),
+                icon: Icon(Icons.home_rounded), label: 'Home'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.hotel_rounded), label: 'calendar'),
+                icon: Icon(Icons.hotel_rounded), label: 'Accommodation'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.calendar_month_rounded), label: 'home'),
+                icon: Icon(Icons.calendar_month_rounded), label: 'Calendar'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.forum_rounded), label: 'microphone'),
+                icon: Icon(Icons.forum_rounded), label: 'Blog'),
           ],
         ));
   }
