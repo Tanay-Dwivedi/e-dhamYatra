@@ -42,6 +42,7 @@ dependencies:
   carousel_slider: ^4.0.0
   font_awesome_flutter: ^9.2.0
   otp_text_field: ^1.1.2
+  introduction_screen: ^3.0.0
 
 dev_dependencies:
   flutter_test:

@@ -1,3 +1,4 @@
+import 'package:e_chardham_yatra/pages/onboarding_page.dart';
 import 'package:e_chardham_yatra/values/colors.dart';
 import 'package:e_chardham_yatra/pages/AccomodationPage.dart';
 import 'package:e_chardham_yatra/pages/BlogPage.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
             scaffoldBackgroundColor: AppColor.background,
             fontFamily: 'Poppins'),
         title: 'Utrakhand Tourism',
-        home: const LoginPage());
+        home:  OnBoardingPage());
   }
 }
 
