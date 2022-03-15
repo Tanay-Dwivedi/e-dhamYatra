@@ -19,3 +19,11 @@ Widget smallTitle(text) {
         fontFamily: 'Poppins', fontWeight: FontWeight.w700, fontSize: 14),
   );
 }
+
+Widget heading(text) {
+  return Text(
+    text,
+    style: const TextStyle(
+        fontFamily: 'Poppins', fontWeight: FontWeight.w800, fontSize: 18),
+  );
+}

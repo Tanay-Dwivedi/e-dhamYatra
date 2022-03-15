@@ -5,11 +5,13 @@ import 'package:flutter/services.dart';
 // Input Field Widget
 
 class RoundedInputFeild extends StatelessWidget {
-  final action;
+  final double width;
+  final TextInputAction? action;
   final String hintText;
   final IconData icon;
   const RoundedInputFeild(
       {Key? key,
+      required this.width,
       required this.hintText,
       required this.icon,
       required this.action})
@@ -18,11 +20,17 @@ class RoundedInputFeild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 5),
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-        decoration: BoxDecoration(
-            border: Border.all(color: Colors.blue),
-            borderRadius: BorderRadius.circular(14)),
+        width: width,
+        margin: EdgeInsets.only(left: width * 0.1, bottom: 20, top: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            offset: const Offset(5.0, 5.0),
+            blurRadius: 10.0,
+            spreadRadius: 2.0,
+          )
+        ], color: AppColor.background, borderRadius: BorderRadius.circular(14)),
         child: TextField(
             keyboardType: TextInputType.phone,
             inputFormatters: [
@@ -31,9 +39,11 @@ class RoundedInputFeild extends StatelessWidget {
             ],
             textInputAction: action,
             decoration: InputDecoration(
-              icon: Icon(icon),
+              icon: Icon(
+                icon,
+                color: Colors.black,
+              ),
               border: InputBorder.none,
-              iconColor: Colors.black,
               hintText: hintText,
             )));
   }

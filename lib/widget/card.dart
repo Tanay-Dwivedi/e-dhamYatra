@@ -28,8 +28,8 @@ class destinationCard extends StatelessWidget {
           child: Column(children: [
             Container(
               margin: const EdgeInsets.all(4),
-              height: 140,
-              width: 120,
+              height: AppDimens.cardHeight,
+              width: AppDimens.cardWidth,
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(AppDimens.cornerRadius),
                   child: Image.asset(

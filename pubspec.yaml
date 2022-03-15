@@ -40,6 +40,8 @@ dependencies:
   flutter_icons: ^1.1.0
   flutter_snake_navigationbar: ^0.6.1
   carousel_slider: ^4.0.0
+  font_awesome_flutter: ^9.2.0
+  otp_text_field: ^1.1.2
 
 dev_dependencies:
   flutter_test:
@@ -85,7 +87,6 @@ flutter:
   fonts:
     - family: Poppins
       fonts:
-        - asset: fonts/Poppins-Medium.ttf
         - asset: fonts/Poppins-Regular.ttf
   #   - family: Trajan Pro
   #     fonts:

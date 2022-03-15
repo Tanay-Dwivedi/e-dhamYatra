@@ -6,7 +6,6 @@ import 'package:e_chardham_yatra/pages/HomePage.dart';
 import 'package:e_chardham_yatra/pages/LoginPage.dart';
 import 'package:e_chardham_yatra/values/dimens.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 
 void main() {
@@ -22,6 +21,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(
+            primaryColor: AppColor.primary,
+            backgroundColor: AppColor.background,
             scaffoldBackgroundColor: AppColor.background,
             fontFamily: 'Poppins'),
         title: 'Utrakhand Tourism',
