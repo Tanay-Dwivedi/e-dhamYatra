@@ -1,7 +1,10 @@
+import 'package:e_chardham_yatra/values/colors.dart';
 import 'package:e_chardham_yatra/pages/AccomodationPage.dart';
 import 'package:e_chardham_yatra/pages/BlogPage.dart';
 import 'package:e_chardham_yatra/pages/CalendarPage.dart';
 import 'package:e_chardham_yatra/pages/HomePage.dart';
+import 'package:e_chardham_yatra/pages/LoginPage.dart';
+import 'package:e_chardham_yatra/values/dimens.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
@@ -19,10 +22,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(
-            scaffoldBackgroundColor: const Color.fromARGB(255, 234, 247, 253),
+            scaffoldBackgroundColor: AppColor.background,
             fontFamily: 'Poppins'),
         title: 'Utrakhand Tourism',
-        home: const BottomNav());
+        home: const LoginPage());
   }
 }
 
@@ -33,7 +36,6 @@ class BottomNav extends StatefulWidget {
 }
 
 class _BottomNavState extends State<BottomNav> {
-  static const double iconSize = 30;
   int _selectedIndex = 0;
 
   static const List<Widget> _pages = [
@@ -75,11 +77,11 @@ class _BottomNavState extends State<BottomNav> {
           behaviour: SnakeBarBehaviour.floating,
           snakeShape: SnakeShape.circle,
           shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(radius)),
+              borderRadius: BorderRadius.circular(AppDimens.cornerRadius)),
           padding: const EdgeInsets.only(bottom: 12, left: 50, right: 50),
 
           ///configuration for SnakeNavigationBar.color
-          snakeViewColor: Colors.blue[100],
+          snakeViewColor: AppColor.bottomBar,
           selectedItemColor: Colors.black,
           unselectedItemColor: Colors.blueGrey.withOpacity(.7),
           backgroundColor: Colors.white.withOpacity(.95),

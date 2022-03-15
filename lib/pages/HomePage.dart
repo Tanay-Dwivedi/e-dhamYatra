@@ -1,10 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_chardham_yatra/place_data.dart';
+import 'package:e_chardham_yatra/values/dimens.dart';
 import 'package:e_chardham_yatra/widget/card.dart';
 import 'package:e_chardham_yatra/widget/title.dart';
 import 'package:flutter/material.dart';
 
-double radius = 12;
+import '../widget/widgets.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -25,7 +26,7 @@ class _HomePageState extends State<HomePage> {
               Stack(alignment: Alignment.bottomLeft, children: [
                 Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(radius),
+                    borderRadius: BorderRadius.circular(AppDimens.cornerRadius),
                     image: DecorationImage(
                         image: AssetImage(display.displayImage),
                         fit: BoxFit.cover),
@@ -33,7 +34,8 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(radius),
+                      borderRadius:
+                          BorderRadius.circular(AppDimens.cornerRadius),
                       color: Colors.white,
                       gradient: LinearGradient(
                           begin: FractionalOffset.topCenter,
@@ -96,29 +98,4 @@ class _HomePageState extends State<HomePage> {
       ],
     );
   }
-}
-
-Widget exploreTiles(String title, IconData icon) {
-  return Expanded(
-      child: Column(
-    children: [
-      // TODO: Icon to be added here
-      MaterialButton(
-        color: Colors.blue[100],
-        padding: const EdgeInsets.all(16),
-        shape: const CircleBorder(),
-        onPressed: () {},
-        child: Icon(
-          icon,
-          color: Colors.black,
-        ),
-      ),
-
-      Container(
-          padding: const EdgeInsets.all(4),
-          child: Text(
-            title,
-          ))
-    ],
-  ));
 }
