@@ -2,10 +2,11 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_chardham_yatra/place_data.dart';
 import 'package:e_chardham_yatra/values/dimens.dart';
 import 'package:e_chardham_yatra/widget/card.dart';
+import 'package:e_chardham_yatra/widget/explore_tile.dart';
 import 'package:e_chardham_yatra/widget/title.dart';
 import 'package:flutter/material.dart';
 
-import '../widget/widgets.dart';
+import '../widget/rounded_input_feild.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -80,7 +81,7 @@ class _HomePageState extends State<HomePage> {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                for (var place in places) destinationCard(place: place)
+                for (var place in places) DestinationCard(place: place)
               ],
             )),
         medTitle("Char Dham", 0, 20),
@@ -90,7 +91,7 @@ class _HomePageState extends State<HomePage> {
             child: Row(
               children: [
                 for (var place in places)
-                  destinationCard(
+                  DestinationCard(
                     place: place,
                   )
               ],

@@ -2,19 +2,21 @@ import 'package:e_chardham_yatra/values/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-// Input Field Widget
-
 class RoundedInputFeild extends StatelessWidget {
   final double width;
   final TextInputAction? action;
   final String hintText;
   final IconData icon;
+  final TextInputType keyboardType;
+  final List<TextInputFormatter> inputFormatters;
   const RoundedInputFeild(
       {Key? key,
       required this.width,
       required this.hintText,
       required this.icon,
-      required this.action})
+      required this.action,
+      required this.keyboardType,
+      required this.inputFormatters})
       : super(key: key);
 
   @override
@@ -32,11 +34,8 @@ class RoundedInputFeild extends StatelessWidget {
           )
         ], color: AppColor.background, borderRadius: BorderRadius.circular(14)),
         child: TextField(
-            keyboardType: TextInputType.phone,
-            inputFormatters: [
-              LengthLimitingTextInputFormatter(10),
-              FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-            ],
+            keyboardType: keyboardType,
+            inputFormatters: inputFormatters,
             textInputAction: action,
             decoration: InputDecoration(
               icon: Icon(
@@ -47,31 +46,4 @@ class RoundedInputFeild extends StatelessWidget {
               hintText: hintText,
             )));
   }
-}
-
-// Explore tiles widget
-
-Widget exploreTiles(String title, IconData icon) {
-  return Expanded(
-      child: Column(
-    children: [
-      // TODO: Icon to be added here
-      MaterialButton(
-        color: AppColor.primary,
-        padding: const EdgeInsets.all(16),
-        shape: const CircleBorder(),
-        onPressed: () {},
-        child: Icon(
-          icon,
-          color: Colors.black,
-        ),
-      ),
-
-      Container(
-          padding: const EdgeInsets.all(4),
-          child: Text(
-            title,
-          ))
-    ],
-  ));
 }

@@ -2,8 +2,9 @@ import 'package:e_chardham_yatra/pages/VerificationPage.dart';
 import 'package:e_chardham_yatra/values/colors.dart';
 import 'package:e_chardham_yatra/main.dart';
 import 'package:e_chardham_yatra/widget/title.dart';
-import 'package:e_chardham_yatra/widget/widgets.dart';
+import 'package:e_chardham_yatra/widget/rounded_input_feild.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginPage extends StatefulWidget {
@@ -34,10 +35,15 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       Row(children: [
                         RoundedInputFeild(
+                          keyboardType: TextInputType.number,
                           width: totalWidth * 0.7,
                           hintText: "Your Phone No.",
                           icon: Icons.phone_rounded,
                           action: TextInputAction.next,
+                          inputFormatters: [
+                            LengthLimitingTextInputFormatter(10),
+                            FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                          ],
                         ),
                         MaterialButton(
                             height: 50,

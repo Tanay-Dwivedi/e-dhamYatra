@@ -1,14 +1,12 @@
 import 'package:e_chardham_yatra/pages/DetailPage.dart';
-import 'package:e_chardham_yatra/pages/HomePage.dart';
 import 'package:e_chardham_yatra/values/dimens.dart';
 import 'package:e_chardham_yatra/widget/title.dart';
 import 'package:flutter/material.dart';
 import 'package:e_chardham_yatra/place_data.dart';
 
-// ignore: camel_case_types
-class destinationCard extends StatelessWidget {
+class DestinationCard extends StatelessWidget {
   Place place;
-  destinationCard({Key? key, required this.place}) : super(key: key);
+  DestinationCard({Key? key, required this.place}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

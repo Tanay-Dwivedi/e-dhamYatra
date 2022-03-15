@@ -3,6 +3,9 @@ import 'package:e_chardham_yatra/values/colors.dart';
 import 'package:e_chardham_yatra/values/dimens.dart';
 import 'package:e_chardham_yatra/widget/title.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import '../widget/rounded_input_feild.dart';
 
 class EnterDetailPage extends StatefulWidget {
   const EnterDetailPage({Key? key}) : super(key: key);
@@ -29,6 +32,22 @@ class _EnterDetailPage extends State<EnterDetailPage> {
                     height: 40,
                   ),
                   SizedBox(height: totalHeight * 0.1),
+                  RoundedInputFeild(
+                    keyboardType: TextInputType.text,
+                    width: totalWidth * 0.8,
+                    hintText: "Your name",
+                    icon: Icons.person,
+                    action: TextInputAction.next,
+                    inputFormatters: [],
+                  ),
+                  RoundedInputFeild(
+                    keyboardType: TextInputType.datetime,
+                    width: totalWidth * 0.8,
+                    hintText: "Your age",
+                    icon: Icons.calendar_month_rounded,
+                    action: TextInputAction.next,
+                    inputFormatters: [],
+                  ),
                   MaterialButton(
                       height: 50,
                       padding: const EdgeInsets.only(left: 50, right: 50),

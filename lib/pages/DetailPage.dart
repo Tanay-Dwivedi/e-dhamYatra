@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../place_data.dart';
 
 class DetailPage extends StatelessWidget {
-  Place place;
-  DetailPage({Key? key, required this.place}) : super(key: key);
+  final Place place;
+  const DetailPage({Key? key, required this.place}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
