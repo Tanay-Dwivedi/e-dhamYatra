@@ -77,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            const BottomNav()));
+                                            const MainContent()));
                               },
                               color: AppColor.primary),
                           MaterialButton(
@@ -90,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            const BottomNav()));
+                                            const MainContent()));
                               },
                               color: AppColor.primary)
                         ],

@@ -1,4 +1,5 @@
 import 'package:e_chardham_yatra/main.dart';
+import 'package:e_chardham_yatra/pages/EnterDetailPage.dart';
 import 'package:e_chardham_yatra/values/colors.dart';
 import 'package:e_chardham_yatra/values/dimens.dart';
 import 'package:e_chardham_yatra/widget/title.dart';
@@ -38,7 +39,7 @@ class _VerificationPage extends State<VerificationPage> {
                         length: 6,
                         width: totalWidth,
                         fieldWidth: totalWidth * 0.11,
-                        style: TextStyle(fontSize: 14),
+                        style: const TextStyle(fontSize: 14),
                         textFieldAlignment: MainAxisAlignment.spaceAround,
                         fieldStyle: FieldStyle.box,
                       ),
@@ -56,7 +57,8 @@ class _VerificationPage extends State<VerificationPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const BottomNav()));
+                                    builder: (context) =>
+                                        const EnterDetailPage()));
                           },
                           color: AppColor.primary)
                     ]))));

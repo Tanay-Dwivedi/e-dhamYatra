@@ -30,13 +30,13 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class BottomNav extends StatefulWidget {
-  const BottomNav({Key? key}) : super(key: key);
+class MainContent extends StatefulWidget {
+  const MainContent({Key? key}) : super(key: key);
   @override
-  State<BottomNav> createState() => _BottomNavState();
+  State<MainContent> createState() => _MainContentState();
 }
 
-class _BottomNavState extends State<BottomNav> {
+class _MainContentState extends State<MainContent> {
   int _selectedIndex = 0;
 
   static const List<Widget> _pages = [
@@ -65,13 +65,13 @@ class _BottomNavState extends State<BottomNav> {
       return Stack(
         children: [
           _pages.elementAt(_selectedIndex),
-          Align(alignment: Alignment.bottomCenter, child: newMethod(width))
+          Align(alignment: Alignment.bottomCenter, child: bottomNav(width))
         ],
       );
     }));
   }
 
-  Widget newMethod(width) {
+  Widget bottomNav(width) {
     return SizedBox(
         width: width,
         child: SnakeNavigationBar.color(
