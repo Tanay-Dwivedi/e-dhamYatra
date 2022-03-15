@@ -1,3 +1,4 @@
+import 'package:e_chardham_yatra/pages/SplashScreen.dart';
 import 'package:e_chardham_yatra/pages/onboarding_page.dart';
 import 'package:e_chardham_yatra/values/colors.dart';
 import 'package:e_chardham_yatra/pages/AccomodationPage.dart';
@@ -16,18 +17,20 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+
   // This widget is the root of your application.
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
             primaryColor: AppColor.primary,
             backgroundColor: AppColor.background,
             scaffoldBackgroundColor: AppColor.background,
             fontFamily: 'Poppins'),
         title: 'Utrakhand Tourism',
-        home:  OnBoardingPage());
+        home:  SplashScreen());
   }
 }
 
