@@ -23,7 +23,7 @@ class RoundedInputFeild extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         width: width,
-        margin: EdgeInsets.only(left: width * 0.1, bottom: 20, top: 20),
+        margin: const EdgeInsets.only(bottom: 20, top: 20),
         padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
         decoration: BoxDecoration(boxShadow: [
           BoxShadow(

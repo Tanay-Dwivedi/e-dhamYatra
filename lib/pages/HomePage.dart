@@ -1,7 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_chardham_yatra/place_data.dart';
+import 'package:e_chardham_yatra/values/colors.dart';
 import 'package:e_chardham_yatra/values/dimens.dart';
+import 'package:e_chardham_yatra/widget/button_widget.dart';
 import 'package:e_chardham_yatra/widget/card.dart';
+import 'package:e_chardham_yatra/widget/carousel_slider.dart';
 import 'package:e_chardham_yatra/widget/explore_tile.dart';
 import 'package:e_chardham_yatra/widget/title.dart';
 import 'package:flutter/material.dart';
@@ -18,54 +21,28 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    final double totalWidth = MediaQuery.of(context).size.width;
     return ListView(
       children: [
-        const Padding(padding: EdgeInsets.all(40)),
-        CarouselSlider(
-          items: [
-            for (var display in places)
-              Stack(alignment: Alignment.bottomLeft, children: [
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(AppDimens.cornerRadius),
-                    image: DecorationImage(
-                        image: AssetImage(display.displayImage),
-                        fit: BoxFit.cover),
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius:
-                          BorderRadius.circular(AppDimens.cornerRadius),
-                      color: Colors.white,
-                      gradient: LinearGradient(
-                          begin: FractionalOffset.topCenter,
-                          end: FractionalOffset.bottomCenter,
-                          colors: [
-                            Colors.black.withOpacity(0),
-                            Colors.black.withOpacity(.6),
-                          ],
-                          stops: const [
-                            0.0,
-                            1.0
-                          ])),
-                ),
-                Padding(
-                    padding: const EdgeInsets.only(bottom: 10, left: 20),
-                    child: Text(
-                      display.title,
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: FontWeight.w700),
-                    ))
-              ])
-          ],
-          options: CarouselOptions(
-            autoPlay: true,
-            enlargeCenterPage: true,
-          ),
-        ),
+        Stack(alignment: Alignment.bottomCenter, children: [
+          const AppCarouselSlider(),
+          RoundedInputFeild(
+              width: totalWidth * 0.9,
+              hintText: "Search",
+              icon: Icons.search_rounded,
+              action: TextInputAction.go,
+              keyboardType: TextInputType.text,
+              inputFormatters: const []),
+          Container(
+              margin: EdgeInsets.only(left: 300, bottom: 90),
+              child: MaterialButton(
+                height: 50,
+                onPressed: () {},
+                color: Colors.grey,
+                shape: const CircleBorder(),
+                child: const Icon(Icons.person),
+              )),
+        ]),
         medTitle("Explore", 12, 20),
         Row(
           children: [

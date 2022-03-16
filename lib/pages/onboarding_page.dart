@@ -11,19 +11,20 @@ class OnBoardingPage extends StatelessWidget {
             PageViewModel(
               title: 'A reader lives a thousand lives',
               body: 'The man who never reads lives only one.',
-              image: buildImage('assets/ebook.png'),
+              //image: buildImage('assets/ebook.png'),
               decoration: getPageDecoration(),
             ),
             PageViewModel(
               title: 'Explore',
-              body: 'The hotel and resort business is one of the best and loyal business in the global market. We are the agency that helps to book you a good room in a suitable palace at a reasonable price.',
-              image: buildImage('assets/readingbook.png'),
+              body:
+                  'The hotel and resort business is one of the best and loyal business in the global market. We are the agency that helps to book you a good room in a suitable palace at a reasonable price.',
+              //image: buildImage('assets/readingbook.png'),
               decoration: getPageDecoration(),
             ),
             PageViewModel(
               title: 'Simple UI',
               body: 'For enhanced Travel experience',
-              image: buildImage('assets/manthumbs.png'),
+              //image: buildImage('assets/manthumbs.png'),
               decoration: getPageDecoration(),
             ),
             PageViewModel(
@@ -33,19 +34,25 @@ class OnBoardingPage extends StatelessWidget {
                 text: 'Start Reading',
                 onClicked: () => goToHome(context),
               ),
-              image: buildImage('assets/learn.png'),
+              //image: buildImage('assets/learn.png'),
               decoration: getPageDecoration(),
             ),
           ],
-          done: Text('Read', style: TextStyle(fontWeight: FontWeight.w600)),
+          done: const Text('Done',
+              style:
+                  TextStyle(fontWeight: FontWeight.w600, color: Colors.black)),
           onDone: () => goToHome(context),
           showSkipButton: true,
-          skip: Text('Skip'),
+          skip: const Text('Skip',
+              style:
+                  TextStyle(fontWeight: FontWeight.w600, color: Colors.black)),
           onSkip: () => goToHome(context),
-          next: Icon(Icons.arrow_forward),
+          next: const Icon(
+            Icons.arrow_forward,
+          ),
           dotsDecorator: getDotDecoration(),
           onChange: (index) => print('Page $index selected'),
-          globalBackgroundColor: Theme.of(context).primaryColor,
+          globalBackgroundColor: Colors.white,
           dotsFlex: 0,
           nextFlex: 0,
           // isProgressTap: false,
@@ -76,7 +83,7 @@ class OnBoardingPage extends StatelessWidget {
   PageDecoration getPageDecoration() => const PageDecoration(
         titleTextStyle: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
         bodyTextStyle: TextStyle(fontSize: 20),
-        imagePadding: EdgeInsets.all(24),
+        imagePadding: EdgeInsets.only(top: 300),
         pageColor: Colors.white,
       );
 }
