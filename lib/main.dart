@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
             scaffoldBackgroundColor: AppColor.background,
             fontFamily: 'Poppins'),
         title: 'Utrakhand Tourism',
-        home: SplashScreen());
+        home: const Material(child: HomePage()));
   }
 }
 

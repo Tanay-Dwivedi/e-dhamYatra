@@ -1,5 +1,10 @@
-import 'package:flutter/material.dart';
+import 'dart:ui';
 
+import 'package:e_chardham_yatra/values/colors.dart';
+import 'package:e_chardham_yatra/values/dimens.dart';
+import 'package:e_chardham_yatra/widget/back_button.dart';
+import 'package:e_chardham_yatra/widget/title.dart';
+import 'package:flutter/material.dart';
 import '../place_data.dart';
 
 class DetailPage extends StatelessWidget {
@@ -8,14 +13,27 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          backgroundColor: Colors.blue[100],
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back, color: Colors.black),
-            onPressed: () => Navigator.of(context).pop(),
-          )),
-      body: Center(child: Text("This is Detail page of ${place.title}")),
-    );
+    return Material(
+        child: ListView(
+      children: [
+        Stack(children: [
+          ClipRRect(
+              borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(18),
+                  bottomRight: Radius.circular(18)),
+              child:
+                  Hero(tag: place.tag, child: Image.asset(place.displayImage))),
+          const AppBackButton(),
+          Positioned(
+              bottom: 20,
+              left: 20,
+              child: Text(place.title,
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 27,
+                      fontWeight: FontWeight.w800)))
+        ]),
+      ],
+    ));
   }
 }

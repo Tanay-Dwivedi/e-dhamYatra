@@ -30,10 +30,12 @@ class DestinationCard extends StatelessWidget {
               width: AppDimens.cardWidth,
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(AppDimens.cornerRadius),
-                  child: Image.asset(
-                    place.displayImage,
-                    fit: BoxFit.cover,
-                  )),
+                  child: Hero(
+                      tag: place.tag,
+                      child: Image.asset(
+                        place.displayImage,
+                        fit: BoxFit.cover,
+                      ))),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(AppDimens.cornerRadius)),
             ),
@@ -42,7 +44,7 @@ class DestinationCard extends StatelessWidget {
               const SizedBox(
                 width: 10,
               ),
-              // ClipRRect(
+              // ClipRRect()
               //   borderRadius: BorderRadius.circular(8),
               //   child: Material(
               //     color: Colors.blue[100],

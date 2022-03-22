@@ -33,6 +33,8 @@ class _EnterDetailPage extends State<EnterDetailPage> {
                   ),
                   SizedBox(height: totalHeight * 0.1),
                   RoundedInputFeild(
+                    leftPadding: 0,
+                    rightPadding: 0,
                     keyboardType: TextInputType.text,
                     width: totalWidth * 0.8,
                     hintText: "Your name",
@@ -41,6 +43,8 @@ class _EnterDetailPage extends State<EnterDetailPage> {
                     inputFormatters: [],
                   ),
                   RoundedInputFeild(
+                    leftPadding: 0,
+                    rightPadding: 0,
                     keyboardType: TextInputType.datetime,
                     width: totalWidth * 0.8,
                     hintText: "Your age",

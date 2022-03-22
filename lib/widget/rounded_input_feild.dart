@@ -9,8 +9,12 @@ class RoundedInputFeild extends StatelessWidget {
   final IconData icon;
   final TextInputType keyboardType;
   final List<TextInputFormatter> inputFormatters;
+  final double leftPadding;
+  final double rightPadding;
   const RoundedInputFeild(
       {Key? key,
+      required this.leftPadding,
+      required this.rightPadding,
       required this.width,
       required this.hintText,
       required this.icon,
@@ -23,7 +27,8 @@ class RoundedInputFeild extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         width: width,
-        margin: const EdgeInsets.only(bottom: 20, top: 20),
+        margin: EdgeInsets.only(
+            bottom: 20, top: 20, left: leftPadding, right: rightPadding),
         padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
         decoration: BoxDecoration(boxShadow: [
           BoxShadow(

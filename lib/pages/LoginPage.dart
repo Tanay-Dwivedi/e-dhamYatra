@@ -35,6 +35,8 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       Row(children: [
                         RoundedInputFeild(
+                          leftPadding: totalWidth * 0.07,
+                          rightPadding: 0,
                           keyboardType: TextInputType.number,
                           width: totalWidth * 0.7,
                           hintText: "Your Phone No.",

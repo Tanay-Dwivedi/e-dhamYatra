@@ -7,6 +7,8 @@ class OnBoardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => SafeArea(
         child: IntroductionScreen(
+          isBottomSafeArea: false,
+
           pages: [
             PageViewModel(
               title: 'A reader lives a thousand lives',

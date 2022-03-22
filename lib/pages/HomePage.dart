@@ -1,8 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_chardham_yatra/place_data.dart';
-import 'package:e_chardham_yatra/values/colors.dart';
-import 'package:e_chardham_yatra/values/dimens.dart';
-import 'package:e_chardham_yatra/widget/button_widget.dart';
 import 'package:e_chardham_yatra/widget/card.dart';
 import 'package:e_chardham_yatra/widget/carousel_slider.dart';
 import 'package:e_chardham_yatra/widget/explore_tile.dart';
@@ -27,6 +23,8 @@ class _HomePageState extends State<HomePage> {
         Stack(alignment: Alignment.bottomCenter, children: [
           const AppCarouselSlider(),
           RoundedInputFeild(
+              leftPadding: 0,
+              rightPadding: 0,
               width: totalWidth * 0.9,
               hintText: "Search",
               icon: Icons.search_rounded,
@@ -34,7 +32,7 @@ class _HomePageState extends State<HomePage> {
               keyboardType: TextInputType.text,
               inputFormatters: const []),
           Container(
-              margin: EdgeInsets.only(left: 300, bottom: 90),
+              margin: EdgeInsets.only(left: totalWidth * 0.8, bottom: 90),
               child: MaterialButton(
                 height: 50,
                 onPressed: () {},
@@ -62,17 +60,17 @@ class _HomePageState extends State<HomePage> {
               ],
             )),
         medTitle("Char Dham", 0, 20),
-        SingleChildScrollView(
-            padding: const EdgeInsets.only(left: 8, right: 8, bottom: 80),
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                for (var place in places)
-                  DestinationCard(
-                    place: place,
-                  )
-              ],
-            )),
+        // SingleChildScrollView(
+        //     padding: const EdgeInsets.only(left: 8, right: 8, bottom: 80),
+        //     scrollDirection: Axis.horizontal,
+        //     child: Row(
+        //       children: [
+        //         for (var place in places)
+        //           DestinationCard(
+        //             place: place,
+        //           )
+        //       ],
+        //     )),
       ],
     );
   }
